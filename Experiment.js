@@ -1,9 +1,8 @@
-var React = require('react-native');
-var {
+import React, { PropTypes } from 'react';
+import {
   AsyncStorage,
-  PropTypes,
   View
-} = React;
+} from 'react-native';
 
 var Experiment = React.createClass({
 
@@ -12,7 +11,7 @@ var Experiment = React.createClass({
     children: ((props, propName) => {
       var children = props[propName];
       if (!Array.isArray(children) || children.length < 2) {
-        return new Error('You must have at least 2 Variants.');
+        return new Error('You must have more than 1 Variant.');
       }
       for (child of children) {
         if (!child.type.prototype.isVariant) {
@@ -70,10 +69,6 @@ var Experiment = React.createClass({
 
   getActiveVariant() {
     return this.state.variant;
-  },
-
-  getName() {
-    return this.props.name;
   },
 
   getVariant(name) {

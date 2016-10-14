@@ -1,5 +1,4 @@
-var React = require('react-native');
-var { PropTypes } = React;
+import React, { PropTypes } from 'react';
 
 var Variant = React.createClass({
   propTypes: {
@@ -9,10 +8,6 @@ var Variant = React.createClass({
 
   render() {
     return this.props.children;
-  },
-
-  getName() {
-    return this.props.name;
   },
 
   isVariant: true
